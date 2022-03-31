@@ -1,6 +1,6 @@
 import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {inputItem} from '../redux/index'
+import {inputItem, CreateItem, resetInput} from '../redux/index'
 
 function NewItem() {
     const newItem = useSelector(state=>state.item.current_item)
@@ -9,9 +9,14 @@ function NewItem() {
         const curr_item = {...newItem, title:evt.target.value}
         dispatch(inputItem(curr_item))
     }
+    const handleSubmit = (evt) =>{
+        dispatch(CreateItem(newItem))
+        clear()
+    }
+    const clear = () =>{dispatch(resetInput())}
   return (
     <div>
-        <form>
+        <form onSubmit={evt => handleSubmit(evt)}>
             <input type='text' placeholder='New item' onChange={(evt)=>handleInput(evt)} value={newItem.title}></input>
             <button type='submit'>Add</button>
         </form>

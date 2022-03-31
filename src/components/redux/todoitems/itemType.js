@@ -4,6 +4,8 @@ export const LOADING = 'LOADING'
 export const ERROR = 'ERROR'
 
 export const INPUT_ITEM = 'INPUT_ITEM'
+export const RESET_INPUT = 'RESET_INPUT'
+export const CREATING = 'CREATING'
 export const CREATE_ITEM = 'CREATE_ITEM'
 export const UPDATE_ITEM = 'UPDATE_ITEM'
 export const TOGGLE_DONE = 'TOGGLE_DONE'

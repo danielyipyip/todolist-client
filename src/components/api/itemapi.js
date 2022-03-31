@@ -6,3 +6,7 @@ export const getPostAPI = async () =>{
     const posts = await axios.get(baseURL)
     return posts
 }
+
+export const createPostAPI = async(newItem) =>{
+    return await axios.post(baseURL, newItem)
+}

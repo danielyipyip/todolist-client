@@ -25,3 +25,24 @@ export const GetItems = () =>{
 export const inputItem = (text) =>{
     return {type: itemTypes.INPUT_ITEM, payload: text}
 }
+
+export const creating = () =>{
+    return {type: itemTypes.CREATING}
+}
+
+export const createItem = () =>{
+    return {type: itemTypes.CREATE_ITEM}
+}
+
+export const CreateItem = (newItem) =>{
+    return (dispatch) =>{
+        dispatch(loading())
+        api.createPostAPI(newItem)
+        .then( ()=> dispatch(createItem()) )
+        .catch( (err)=>dispatch(error(err)) )
+    }
+}
+
+export const resetInput = () =>{
+    return {type: itemTypes.RESET_INPUT}
+}
