@@ -1,0 +1,7 @@
+.panelContainer{
+    display: inline;
+    text-align: center;
+    /* margin: 0 50% 0 50%; */
+    /* margin: 0 auto 0 50%; */
+    background-color: "#fff176"
+}

@@ -1,8 +1,13 @@
 import React from "react";
+import Todopanel from "./components/todopanel/Todopanel";
 
 const App = () =>{
     return (
-        <p>App</p>
+        <div>
+            <p>App</p>
+            <Todopanel />
+        </div>
+        
     )
 }
 
