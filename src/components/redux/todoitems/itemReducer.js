@@ -16,6 +16,8 @@ const reducer = (state=initialState, action) =>{
             return {...state, loading: false, items: action.payload, error: ''}
         case itemTypes.ERROR: 
             return {...state, loading: false, error: action.payload}
+        case itemTypes.INPUT_ITEM:
+            return {...state, loading: false, current_item:action.payload}
         default:
             return state
     }

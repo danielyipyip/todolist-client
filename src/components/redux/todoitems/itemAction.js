@@ -21,3 +21,7 @@ export const GetItems = () =>{
         .catch( (err)=>dispatch(error(err)) )
     }
 }
+
+export const inputItem = (text) =>{
+    return {type: itemTypes.INPUT_ITEM, payload: text}
+}

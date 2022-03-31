@@ -5,6 +5,7 @@ import {GetItems} from './components/redux/index'
 
 const App = () =>{
     const items = useSelector(state=>state.item.items);
+    // console.log(items)
     const dispatch = useDispatch();
     useEffect(()=>{
         dispatch(GetItems())
@@ -12,7 +13,7 @@ const App = () =>{
     return (
         <div>
             <p>App</p>
-            {items && items[0].title}
+            {items.length>0? items[0].title: 'loading'}
             <Todopanel />
         </div>
         

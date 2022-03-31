@@ -2,6 +2,7 @@ import React from 'react'
 import Todoitem from '../todoitem/Todoitem'
 import {Grid, List, Box} from '@mui/material'
 import './styles.css'
+import NewItem from '../form/NewItem'
 
 function Todopanel() {
   return (
@@ -13,6 +14,7 @@ function Todopanel() {
                 
                 <Todoitem />
                 <Todoitem />
+                <NewItem />
             </List>
         </Box>
       </Grid>
