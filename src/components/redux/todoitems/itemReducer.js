@@ -4,7 +4,7 @@ import {getItems} from './itemAction'
 const initialState = {
     loading: false, 
     items: [], 
-    current_item: { title: '', finished: false, created: '' }, 
+    current_item: {title: '', finished: false, created: '' }, 
     create: false, 
     error: ''
 }
@@ -20,11 +20,15 @@ const reducer = (state=initialState, action) =>{
         case itemTypes.INPUT_ITEM:
             return {...state, loading: false, current_item:action.payload}
         case itemTypes.CREATE_ITEM:
-            return {...state, loading: false, current_item:initialState.current_item, create:true}
+            return {...state, loading: false, current_item:initialState.current_item, items: [...state.items, action.payload], create:true}
         case itemTypes.CREATING: 
             return {...state, create: false}
         case itemTypes.RESET_INPUT: 
             return {...state, current_item:initialState.current_item}
+        case itemTypes.TOGGLE_DONE:
+            return {...state, items:state.items.length>0?state.items.map(item=>{
+                return {...item, _id:item._id==action.id?(!item.finished):item.finished} })
+                :state.items }
         default:
             return state
     }

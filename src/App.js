@@ -14,7 +14,7 @@ const App = () =>{
         <div>
             <p>App</p>
             {/* {items.length>0? items.map(item=><p>{item.title}</p>): 'loading'} */}
-            <Todopanel />
+            <Todopanel items={items}/>
         </div>
         
     )

@@ -10,3 +10,7 @@ export const getPostAPI = async () =>{
 export const createPostAPI = async(newItem) =>{
     return await axios.post(baseURL, newItem)
 }
+
+export const toggleDoneAPI = async(id) =>{
+    return await axios.get(`${baseURL}/${id}/`)
+}

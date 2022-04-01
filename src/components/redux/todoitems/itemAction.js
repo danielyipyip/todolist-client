@@ -30,8 +30,8 @@ export const creating = () =>{
     return {type: itemTypes.CREATING}
 }
 
-export const createItem = () =>{
-    return {type: itemTypes.CREATE_ITEM}
+export const createItem = (newItem) =>{
+    return {type: itemTypes.CREATE_ITEM, payload: newItem}
 }
 
 export const CreateItem = (newItem) =>{
@@ -39,11 +39,9 @@ export const CreateItem = (newItem) =>{
         dispatch(loading())
         api.createPostAPI(newItem)
         .then( ()=> {
-            dispatch(createItem());
-            // dispatch(GetItems());
+            dispatch(createItem(newItem));
         }) 
         .catch( (err)=>dispatch(error(err)) )
-        
     }
 }
 
@@ -51,8 +49,16 @@ export const resetInput = () =>{
     return {type: itemTypes.RESET_INPUT}
 }
 
-export const toggleDone = () =>{
-    return {type: itemTypes.TOGGLE_DONE}
+export const toggleDone = (id) =>{
+    return {type: itemTypes.TOGGLE_DONE, id:id}
+}
+
+export const ToogleDone = (id) =>{
+    return (dispatch) =>{
+        api.toggleDoneAPI(id)
+        .then( ()=>dispatch(toggleDone(id)) )
+        .catch( (err)=>dispatch(error(err)) )
+    }
 }
 
 
