@@ -38,11 +38,21 @@ export const CreateItem = (newItem) =>{
     return (dispatch) =>{
         dispatch(loading())
         api.createPostAPI(newItem)
-        .then( ()=> dispatch(createItem()) )
+        .then( ()=> {
+            dispatch(createItem());
+            // dispatch(GetItems());
+        }) 
         .catch( (err)=>dispatch(error(err)) )
+        
     }
 }
 
 export const resetInput = () =>{
     return {type: itemTypes.RESET_INPUT}
 }
+
+export const toggleDone = () =>{
+    return {type: itemTypes.TOGGLE_DONE}
+}
+
+

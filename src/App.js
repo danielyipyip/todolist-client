@@ -9,11 +9,11 @@ const App = () =>{
     const dispatch = useDispatch();
     useEffect(()=>{
         dispatch(GetItems())
-    }, [])
+    }, [dispatch])
     return (
         <div>
             <p>App</p>
-            {items.length>0? items[0].title: 'loading'}
+            {/* {items.length>0? items.map(item=><p>{item.title}</p>): 'loading'} */}
             <Todopanel />
         </div>
         
