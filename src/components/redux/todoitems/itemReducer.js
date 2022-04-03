@@ -1,5 +1,4 @@
 import * as itemTypes from './itemType'
-import {getItems} from './itemAction'
 
 const initialState = {
     loading: false, 
@@ -27,11 +26,13 @@ const reducer = (state=initialState, action) =>{
         case itemTypes.RESET_INPUT: 
             return {...state, current_item:initialState.current_item}
         case itemTypes.TOGGLE_DONE:
-            return {...state, items:state.items.length>0?state.items.map(item=>{
-                return {...item, _id:item._id==action.id?(!item.finished):item.finished} })
-                :state.items }
+            // return {...state, items:state.items.length>0?state.items.map(item=>{
+            //     return {...item, finished:item._id==action.id?(!item.finished):item.finished} })
+            //     :state.items }
+            return {...state, items: state.items.map(item=>{
+                return {...item, finished:item._id===action.id?(!item.finished):item.finished} })}
         case itemTypes.DELETE_ITEM:
-            return {...state, items: state.items.filter(item=>item._id!=action.id)}
+            return {...state, items: state.items.filter(item=>item._id!==action.id)}
         default:
             return state
     }

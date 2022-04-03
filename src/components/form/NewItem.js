@@ -1,6 +1,7 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {inputItem, CreateItem, resetInput, GetItems} from '../redux/index'
+import {inputItem, CreateItem, resetInput} from '../redux/index'
+import {TextField} from '@mui/material'
 
 function NewItem() {
     const newItem = useSelector(state=>state.item.current_item)
@@ -14,12 +15,12 @@ function NewItem() {
         dispatch(CreateItem(newItem))
         clear()
     }
-    // useEffect(()=>dispatch(GetItems()), [])
     const clear = () =>{dispatch(resetInput())}
   return (
     <div>
         <form onSubmit={evt => handleSubmit(evt)}>
-            <input type='text' placeholder='New item' onChange={(evt)=>handleInput(evt)} value={newItem.title} required></input>
+            <TextField label='New item' variant='standard' onChange={(evt)=>handleInput(evt)} value={newItem.title} required />
+            {/* <input type='text' placeholder='New item' onChange={(evt)=>handleInput(evt)} value={newItem.title} required></input> */}
             <button type='submit'>Add</button>
         </form>
     </div>

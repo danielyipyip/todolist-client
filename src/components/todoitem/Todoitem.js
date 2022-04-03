@@ -16,8 +16,8 @@ function Todoitem({item}) {
   return (
       <>
       <ListItem>
-        <Checkbox checked={item.finished} onChange={()=>handleCheckBox(item._id)}></Checkbox>
-          <ListItemText>{item.title}</ListItemText>
+        <Checkbox checked={item.finished} onClick={()=>handleCheckBox(item._id)}></Checkbox>
+          <ListItemText className={item.finished?'checked':''} >{item.title}</ListItemText>
           <IconButton onClick={()=>handleDelete(item._id)}><Delete /></IconButton>
       </ListItem>
         

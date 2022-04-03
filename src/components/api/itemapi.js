@@ -12,7 +12,7 @@ export const createPostAPI = async(newItem) =>{
 }
 
 export const toggleDoneAPI = async(id) =>{
-    return await axios.get(`${baseURL}/${id}/`)
+    return await axios.patch(`${baseURL}/${id}/checked`)
 }
 
 export const deleteItemAPI = async (id) =>{

@@ -15,8 +15,7 @@ function Todopanel() {
             <List sx={{ }}>
                 <div>Todopanel</div>
                 {items.length>0 && items.map(item => {
-                  
-                  {return  <Todoitem key={item._id} item={item} />}
+                  return  <Todoitem key={item._id} item={item} />
                 })}
                 {/* <Todoitem />
                 <Todoitem /> */}
