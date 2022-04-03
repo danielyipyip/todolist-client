@@ -61,4 +61,14 @@ export const ToogleDone = (id) =>{
     }
 }
 
+export const deleteItem = (id) =>{
+    return {type: itemTypes.DELETE_ITEM, id:id}
+}
 
+export const DeleteItem = (id) =>{
+    return (dispatch) =>{
+        api.deleteItemAPI(id)
+        .then( ()=>dispatch(deleteItem(id)) )
+        .catch( (err)=>dispatch(error(err)) )
+    }
+}

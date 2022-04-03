@@ -14,3 +14,7 @@ export const createPostAPI = async(newItem) =>{
 export const toggleDoneAPI = async(id) =>{
     return await axios.get(`${baseURL}/${id}/`)
 }
+
+export const deleteItemAPI = async (id) =>{
+    return await axios.delete(`${baseURL}/${id}`)
+}

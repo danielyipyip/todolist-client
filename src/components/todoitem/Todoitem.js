@@ -1,19 +1,24 @@
 import React from 'react'
 import './styles.css'
-import {ListItem, ListItemText, Checkbox} from '@mui/material'
+import {ListItem, ListItemText, Checkbox, IconButton } from '@mui/material'
 import {useDispatch} from 'react-redux'
-import { ToogleDone } from '../redux';
+import { DeleteItem, ToogleDone } from '../redux';
+import {Delete} from '@mui/icons-material';
 
 function Todoitem({item}) {
   const dispatch = useDispatch();
   const handleCheckBox = (id) =>{
     dispatch(ToogleDone(id))
   }
+  const handleDelete = (id) =>{
+    dispatch(DeleteItem(id))
+  }
   return (
       <>
       <ListItem>
         <Checkbox checked={item.finished} onChange={()=>handleCheckBox(item._id)}></Checkbox>
           <ListItemText>{item.title}</ListItemText>
+          <IconButton onClick={()=>handleDelete(item._id)}><Delete /></IconButton>
       </ListItem>
         
       </>
