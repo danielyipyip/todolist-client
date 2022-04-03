@@ -20,6 +20,7 @@ const reducer = (state=initialState, action) =>{
         case itemTypes.INPUT_ITEM:
             return {...state, loading: false, current_item:action.payload}
         case itemTypes.CREATE_ITEM:
+            // console.log([...state.items, action.payload])
             return {...state, loading: false, current_item:initialState.current_item, items: [...state.items, action.payload], create:true}
         case itemTypes.CREATING: 
             return {...state, create: false}

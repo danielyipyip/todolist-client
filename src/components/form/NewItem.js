@@ -20,7 +20,7 @@ function NewItem() {
     <div>
         <form onSubmit={evt => handleSubmit(evt)}>
             <input type='text' placeholder='New item' onChange={(evt)=>handleInput(evt)} value={newItem.title} required></input>
-            <button type='submit' onClick={()=>dispatch(GetItems())}>Add</button>
+            <button type='submit'>Add</button>
         </form>
     </div>
   )

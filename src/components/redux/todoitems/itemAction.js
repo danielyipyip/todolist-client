@@ -36,11 +36,9 @@ export const createItem = (newItem) =>{
 
 export const CreateItem = (newItem) =>{
     return (dispatch) =>{
-        dispatch(loading())
+        // dispatch(loading())
         api.createPostAPI(newItem)
-        .then( ()=> {
-            dispatch(createItem(newItem));
-        }) 
+        .then( ()=> dispatch(createItem(newItem)) )
         .catch( (err)=>dispatch(error(err)) )
     }
 }

@@ -9,7 +9,7 @@ const App = () =>{
     const dispatch = useDispatch();
     useEffect(()=>{
         dispatch(GetItems())
-    }, [dispatch])
+    }, [])
     return (
         <div>
             <p>App</p>
