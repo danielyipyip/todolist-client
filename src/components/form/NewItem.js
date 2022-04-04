@@ -1,7 +1,7 @@
 import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {inputItem, CreateItem, resetInput} from '../redux/index'
-import {TextField} from '@mui/material'
+import {TextField, Button} from '@mui/material'
 
 function NewItem() {
     const newItem = useSelector(state=>state.item.current_item)
@@ -19,9 +19,9 @@ function NewItem() {
   return (
     <div>
         <form onSubmit={evt => handleSubmit(evt)}>
-            <TextField label='New item' variant='standard' onChange={(evt)=>handleInput(evt)} value={newItem.title} required />
-            {/* <input type='text' placeholder='New item' onChange={(evt)=>handleInput(evt)} value={newItem.title} required></input> */}
-            <button type='submit'>Add</button>
+            <TextField label='New item' variant='standard' onChange={(evt)=>handleInput(evt)} value={newItem.title} required 
+                InputProps={{endAdornment: <Button variant='contained' color='primary' type='submit'>Add</Button>}}
+            />
         </form>
     </div>
   )

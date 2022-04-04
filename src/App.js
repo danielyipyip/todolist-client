@@ -12,7 +12,6 @@ const App = () =>{
     }, [dispatch])
     return (
         <div>
-            <p>App</p>
             {/* {items.length>0? items.map(item=><p>{item.title}</p>): 'loading'} */}
             <Todopanel items={items}/>
         </div>
